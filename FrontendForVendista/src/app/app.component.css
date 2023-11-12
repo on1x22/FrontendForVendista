@@ -1,3 +1,7 @@
+.container-fluid {
+  padding: unset;
+}
+
 .contentArea {
   background-color: whitesmoke;
   height: 100vh;

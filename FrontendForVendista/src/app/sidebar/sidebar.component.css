@@ -1,0 +1,4 @@
+.sidebar {
+  /*background: #37474F;*/
+  --bs-list-group-border-color: none;
+}
