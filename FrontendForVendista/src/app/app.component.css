@@ -1,0 +1,62 @@
+.contentArea {
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  font-family: monospace;
+}
+.comandInfoArea {
+  background-color: gainsboro;
+  width: 97%;
+  height: 50%;
+  border: 1px solid black;
+  margin: 0 1.5% 0 1.5%;
+}
+.terminalsListArea {
+  display: inline-block;
+  border: 1px solid black;
+  height: 80%;
+  width: 49%;
+}
+ul.terminalsList {
+  list-style-type: none;
+  background-color: white;
+  margin: 0 2% 0 0%;
+  text-align: left;
+  height: inherit;
+}
+.commandsArea {
+  display: inline-block;
+  border: 1px solid black;
+  height: 80%;
+  width: 49%;
+}
+.historyArea {
+  height: 50%;
+  border: 1px solid black;
+  margin: 0 1.5% 0 1.5%;
+}
+.parameter1 {
+  display: inline-block;
+}
+.parameter2 {
+  display: inline-block;
+}
+.parameter3 {
+  display: inline-block;
+}
+.parameter4 {
+  display: inline-block;
+}
+.parameter5 {
+  display: inline-block;
+}
+.parameter6 {
+  display: inline-block;
+}
+.parameter7 {
+  display: inline-block;
+}
+.parameter8 {
+  display: inline-block;
+}
