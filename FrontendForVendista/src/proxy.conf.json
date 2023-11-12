@@ -2,18 +2,12 @@
   "/commands/*": {
     "target": "http://178.57.218.210:398",
     "secure": false,
-    /*"pathRewrite": {
-      "^/": ""
-    },*/
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/terminals/*": {
     "target": "http://178.57.218.210:398",
     "secure": false,
-    /*"pathRewrite": {
-      "^/": ""
-    },*/
     "changeOrigin": true,
     "logLevel": "debug"
   }

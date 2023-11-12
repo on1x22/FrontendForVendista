@@ -6,40 +6,22 @@
       <button (click)="giveMeData()">GET Users</button>
 
       <ul class="terminalsList">
-        <!--<li value="129">129 (test)</li>-->
         <li *ngFor="let terminal of terminalsList">
           <span class="file">
-            <!--<a href="fsd">129 (test)</a>-->
             <a>{{terminal}}</a>
           </span>
         </li>
       </ul>
-
-     
-
-      <!--<mat-selection-list #shoes [multiple]="false">
-    @for (shoe of typesOfShoes; track shoe) {
-    <mat-list-option [value]="shoe">{{shoe}}</mat-list-option>
-    }
-  </mat-selection-list>
-
-  <p>
-    Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
-  </p>-->
-
     </div>
     <div class="commandsArea">
       <h2>Команда</h2>
       <select title="sda" name="dropdown" class="dropdownCommands" (change)="onCommandTypeChange($event)">
         <option>Выберете команду</option>
-        <!--<option *ngFor="let item of var2" selected>-->
         <option *ngFor="let item of commandTypes; let i = index" [value]="i">
           {{item.name}}
         </option>
       </select>
     </div>
-
-
     <div class="commandDetailsArea"
          *ngIf="changeCommand != null"
          [hidden]="changeCommand.parameter_name1 == null">
@@ -50,17 +32,6 @@
                class="value1"
                [(ngModel)]="changeCommand.parameter_default_value1"
                [hidden]="changeCommand.parameter_default_value1 == null" />
-        <!--<section *ngIf="changeCommand | async as cc">
-        <p>{{cc.parameter_name1}}</p>
-      </section>-->
-        <!--<div class="p1desc" ng-bind-html="changeCommand.parameter_name1"></div>-->
-        <!--<p [(ngModel)]="changeCommand.parameter_name1" ng-bind="changeCommand.parameter_name1"/>-->
-        <!--<p ng-hide="par1name == null">{{par1name}}</p>-->
-        <!--<input type="number" class="value1" [(ngModel)]="changeCommand?.parameter_default_value1" ng-hide="par1name == null" />-->
-        <!--<input type="number" class="value1" [(ngModel)]="vaval1" ng-hide="par1name == null" />-->
-        <!--<input type="number" class="value1" *ngIf="changeCommand != null" [(ngModel)]="changeCommand.parameter_default_value1" #titleVal="ngModel" />-->
-        <!--<input type="number" class="value1" [value]="changeCommand?.parameter_default_value1" />-->
-        <!--<input type="number" class="value1" *ngIf="changeCommand.parameter_default_value1 != null" [(ngModel)]="changeCommand.parameter_default_value1" #titleVal="ngModel" />-->
       </div>
       <div class="parameter2" [hidden]="changeCommand.parameter_name2 == null">
         <p [hidden]="changeCommand.parameter_name2 == null">{{changeCommand.parameter_name2}}</p>
@@ -148,28 +119,3 @@
     </div>
   </div>
 </div>
-
-<!--<h1>Using JSON in Angular</h1>
-<h2>{{task.items_per_page}}</h2>
-
-<ul class="">
-  <li *ngFor="let item of commandTypes"
-     itm="item">
-     {{item.name}}
-  </li>
-  </ul>
-
-<select name="color">
-  <option value="red">Red</option>
-  <option value="purple">Purple </option>
-</select>
-
-<select name="dropdown">
-  <option value="taj" selected>Taj Mahal</option>
-  <option value="china">Great Wall of China</option>
-  <option value="chirst" required>Christ the Redeemer Satue</option>
-  <option value="machu" disabled>Machu Picchu</option>
-  <option value="chichen">Chichen Itza</option>
-  <option value="colossem">The Roman Colosseum</option>
-  <option value="petra">Petra</option>
-</select>-->

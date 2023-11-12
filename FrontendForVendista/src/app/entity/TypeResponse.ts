@@ -1,4 +1,4 @@
-export /*interface*/class Root {
+export class Root {
   page_number!: number
   items_per_page!: number
   items_count!: number
@@ -6,7 +6,7 @@ export /*interface*/class Root {
   success!: boolean
 }
 
-export /*interface*/class Item {
+export class Item {
   id!: number
   name!: string
   parameter_name1!: string
