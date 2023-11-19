@@ -13,5 +13,7 @@
     <Folder Include="src\app\entity\" />
     <Folder Include="src\app\sidebar\" />
     <Folder Include="src\app\header\" />
+    <Folder Include="src\app\stub\" />
+    <Folder Include="src\app\terminals\" />
   </ItemGroup>
 </Project>

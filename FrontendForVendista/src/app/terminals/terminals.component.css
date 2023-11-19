@@ -1,0 +1,13 @@
+.all-info {
+    padding: 2% 2% 0% 2%;
+}
+
+.command-info {
+  background-color: #e5e8ef;
+  border: none;
+}
+
+.terminals-list {
+  background-color: blue;
+  list-style-type: none;
+}
