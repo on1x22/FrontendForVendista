@@ -1,36 +1,18 @@
-<div class="container-fluid">
+<div class="container-fluid all-info">
   <div class="row">
-    <header-app></header-app>
+    <a>Отправка команды на терминал</a>
   </div>
-
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-2">
-          <sidebar-app></sidebar-app>
-        </div>
-        <div class="col-sm-10">
-          <router-outlet></router-outlet>
-
-
-
-
-        </div>
-
-
-
-
-
-      </div>
-      <div class="row">
-        <div class="contentArea">
-          <h1>Отпаравка команды на терминал</h1>
-          <div class="comandInfoArea">
-            <div class="terminalsListArea">
-              <h2 class="terminalIdText">ID Терминала(ов)</h2>
-              <button (click)="giveMeData()">GET Users</button>
-
-              <ul class="terminalsList">
+  <div class="row">
+    <div class="card command-info">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm">
+            <div class="row">
+              ID Терминала(ов)
+              <button (click)="giveMeData()">Get terminals</button>
+            </div>
+            <div class="row">
+              <ul class="terminals-list">
                 <li *ngFor="let terminal of terminalsList">
                   <span class="file">
                     <a>{{terminal}}</a>
@@ -38,15 +20,22 @@
                 </li>
               </ul>
             </div>
-            <div class="commandsArea">
-              <h2>Команда</h2>
-              <select title="sda" name="dropdown" class="dropdownCommands" (change)="onCommandTypeChange($event)">
-                <option>Выберете команду</option>
+          </div>
+            <div class="col-sm">
+              Команда
+              <select class="form-select" aria-label="Default select example" (change)="onCommandTypeChange($event)">
+                <option hidden>Display but don't show in list</option>
                 <option *ngFor="let item of commandTypes; let i = index" [value]="i">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+                    <path fill="#000" fill-rule="evenodd" class="cls-1" d="M8,0L4.141,6.993,0.012,0.156Z" />
+                  </svg>
                   {{item.name}}
                 </option>
               </select>
             </div>
+          </div>
+        <div class="row">
+          <div class="row">
             <div class="commandDetailsArea"
                  *ngIf="changeCommand != null"
                  [hidden]="changeCommand.parameter_name1 == null">
@@ -108,42 +97,43 @@
                        [hidden]="changeCommand.parameter_default_value8 == null" />
               </div>
             </div>
-            <div class="commandsButtonsArea">
-              <h2>Место для кнопок</h2>
-              <button (click)="cancelCommand()">Назад</button>
-              <button (click)="sendCommand()">Отправить</button>
-            </div>
           </div>
-          <div class="historyArea">
-            <button (click)="getHistory()">Получить историю</button>
-            <div class="history-table">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">№</th>
-                    <th scope="col">дата и время</th>
-                    <th scope="col">Команда</th>
-                    <th scope="col">Параметр 1</th>
-                    <th scope="col">Параметр 2</th>
-                    <th scope="col">Параметр 3</th>
-                    <th scope="col">Статус</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let command of historyCommandsList2; index as i">
-                    <th scope="row">{{ i + 1 }}</th>
-                    <td>{{ command.time_created }}</td>
-                    <td>{{ command.command }}</td>
-                    <td>{{ command.parameter1 }}</td>
-                    <td>{{ command.parameter2 }}</td>
-                    <td>{{ command.parameter3 }}</td>
-                    <td>{{ command.state_name }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <div class="row">
+            Место для кнопок
+            <button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>
+            <button type="button" class="btn btn-success" (click)="sendCommand()">Отправить</button>
+          </div>               
         </div>
       </div>
     </div>
   </div>
+  <div class="row">
+    <button type="button" class="btn btn-secondary" (click)="getHistory()">Получить историю</button>
+    <div class="history-table">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">№</th>
+            <th scope="col">Дата и время</th>
+            <th scope="col">Команда</th>
+            <th scope="col">Параметр 1</th>
+            <th scope="col">Параметр 2</th>
+            <th scope="col">Параметр 3</th>
+            <th scope="col">Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let command of historyCommandsList2; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ command.time_created }}</td>
+            <td>{{ command.command }}</td>
+            <td>{{ command.parameter1 }}</td>
+            <td>{{ command.parameter2 }}</td>
+            <td>{{ command.parameter3 }}</td>
+            <td>{{ command.state_name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
