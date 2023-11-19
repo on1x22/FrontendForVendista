@@ -10,5 +10,4 @@ export class SendedCommand {
   parameter8!: number;
   str_parameter1?: string;
   str_parameter2?: string;
-
 }

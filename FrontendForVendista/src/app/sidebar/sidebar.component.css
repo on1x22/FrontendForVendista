@@ -1,0 +1,36 @@
+.sidebar {
+  /*background: #37474F;*/
+  --bs-list-group-border-color: red;
+
+}
+
+.me-3 {
+  margin-right: unset !important;
+  flex: auto !important;
+}
+
+.align-items-start {
+  /*background-color: whitesmoke;*/
+}
+
+.nav-pills {
+  --bs-nav-pills-border-radius: none;
+  --bs-nav-pills-link-active-color: #000;
+  --bs-nav-pills-link-active-bg: #e5e8ef;
+  --bs-nav-link-color: var(--bs-nav-pills-link-active-color);
+  /*--bs-nav-link-hover-color: #0aca9f;*/
+  
+}
+
+/*.nav-pills:hover {
+    background-color: palegoldenrod;
+}*/
+
+.nav-link {
+  text-align: left;
+}
+
+.nav-link:hover {
+  background-color: whitesmoke;
+  --bs-nav-link-hover-color: #000;
+}

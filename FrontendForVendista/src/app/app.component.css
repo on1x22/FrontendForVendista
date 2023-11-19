@@ -1,12 +1,16 @@
+.container-fluid {
+  padding: unset;
+}
+
 .contentArea {
-  background-color: whitesmoke;
+  background-color: #f3f6fd;
   height: 100vh;
   width: 100%;
   text-align: center;
   font-family: monospace;
 }
 .comandInfoArea {
-  background-color: gainsboro;
+  background-color: #e5e8ef;
   width: 97%;
   height: 50%;
   border: 1px solid black;
@@ -59,4 +63,17 @@ ul.terminalsList {
 }
 .parameter8 {
   display: inline-block;
+}
+
+.col-sm-2 {
+  padding-right: unset;
+  /*box-shadow: 3px 0px 5px 0px gainsboro;*/
+  background-color: white;
+  /*background: border-box;*/
+}
+
+.col-sm-10 {
+  background-color: #f3f6fd;
+  /*background: border-box;*/
+  box-shadow: inset 4px 0px 3px 0px gainsboro;
 }
