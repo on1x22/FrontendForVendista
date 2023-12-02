@@ -9,110 +9,139 @@
           <div class="col-sm">
             <div class="row">
               ID Терминала(ов)
-              <button (click)="giveMeData()">Get terminals</button>
+              <!--<button (click)="giveMeData()">Get terminals</button>-->
             </div>
-            <div class="row">
-              <ul class="terminals-list">
-                <li *ngFor="let terminal of terminalsList">
+            <!--<div class="row">
+              <ul class="terminals-list" (onclick)="onTerminalChange($event)">
+                <li class="terminals-list-item" *ngFor="let terminal of terminalsList; let i = index" (click)="onTerminalChange(i)">
                   <span class="file">
-                    <a>{{terminal}}</a>
+                    <a class="iteitem">{{terminal}}</a>
                   </span>
                 </li>
               </ul>
+            </div>-->
+            <div class="row">
+
+
+              <!--<div class="dropdown">
+              <ul class="dropdown-menu">
+                <li><span class="dropdown-item-text">Текст выпадающего списка</span></li>
+                <li><a class="dropdown-item" href="#">Действие</a></li>
+                <li><a class="dropdown-item" href="#">Другое действие</a></li>
+                <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
+              </ul>
+              </div>-->
+
+              <table class="table table-hover table-borderless terminals-table">
+                <thead>
+                  <tr>
+                    <!--<th>Terminal Id</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let terminal of terminalsList; let i = index" (click)="onTerminalChange(i)">
+                    <td>{{terminal}}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-            <div class="col-sm">
-              Команда
-              <select class="form-select" aria-label="Default select example" (change)="onCommandTypeChange($event)">
-                <option hidden>Display but don't show in list</option>
-                <option *ngFor="let item of commandTypes; let i = index" [value]="i">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
-                    <path fill="#000" fill-rule="evenodd" class="cls-1" d="M8,0L4.141,6.993,0.012,0.156Z" />
-                  </svg>
-                  {{item.name}}
-                </option>
-              </select>
-            </div>
+          <div class="col-sm">
+            Команда
+            <select class="form-select" aria-label="Default select example" (change)="onCommandTypeChange($event)">
+              <option hidden>Выберете команду</option>
+              <option *ngFor="let item of commandTypes; let i = index" [value]="i">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+                  <path fill="#000" fill-rule="evenodd" class="cls-1" d="M8,0L4.141,6.993,0.012,0.156Z" />
+                </svg>
+                {{item.name}}
+              </option>
+            </select>
           </div>
+        </div>
         <div class="row">
-          <div class="row">
+          <div class="row inputs-area">
             <div class="commandDetailsArea"
                  *ngIf="changeCommand != null"
                  [hidden]="changeCommand.parameter_name1 == null">
-              <h2>Здесь детали команд</h2>
-              <div class="parameter1" [hidden]="changeCommand.parameter_name1 == null">
-                <p [hidden]="changeCommand.parameter_name1 == null">{{changeCommand.parameter_name1}}</p>
-                <input type="number"
-                       class="value1"
+              <div class="parameter" [hidden]="changeCommand.parameter_name1 == null">
+                <p class="parameter-name" [hidden]="changeCommand.parameter_name1 == null">{{changeCommand.parameter_name1}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value1"
                        [hidden]="changeCommand.parameter_default_value1 == null" />
               </div>
-              <div class="parameter2" [hidden]="changeCommand.parameter_name2 == null">
-                <p [hidden]="changeCommand.parameter_name2 == null">{{changeCommand.parameter_name2}}</p>
-                <input type="number"
-                       class="value2"
+              <div class="parameter" [hidden]="changeCommand.parameter_name2 == null">
+                <p class="parameter-name" [hidden]="changeCommand.parameter_name2 == null">{{changeCommand.parameter_name2}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value2"
                        [hidden]="changeCommand.parameter_default_value2 == null" />
               </div>
-              <div class="parameter3" [hidden]="changeCommand.parameter_name3 == null">
-                <p>{{changeCommand.parameter_name3}}</p>
-                <input type="number"
-                       class="value3"
+              <div class="parameter" [hidden]="changeCommand.parameter_name3 == null">
+                <p class="parameter-name">{{changeCommand.parameter_name3}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value3"
                        [hidden]="changeCommand.parameter_default_value3 == null" />
               </div>
-              <div class="parameter4" [hidden]="changeCommand.parameter_name4 == null">
-                <p>{{changeCommand.parameter_name4}}</p>
-                <input type="number"
-                       class="value4"
+              <div class="parameter" [hidden]="changeCommand.parameter_name4 == null">
+                <p class="parameter-name">{{changeCommand.parameter_name4}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value4"
                        [hidden]="changeCommand.parameter_default_value4 == null" />
               </div>
-              <div class="parameter5" [hidden]="changeCommand.parameter_name5 == null">
-                <p>{{changeCommand.parameter_name5}}</p>
-                <input type="number"
-                       class="value5"
+              <div class="parameter" [hidden]="changeCommand.parameter_name5 == null">
+                <p class="parameter-name">{{changeCommand.parameter_name5}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value5"
                        [hidden]="changeCommand.parameter_default_value5 == null" />
               </div>
-              <div class="parameter6" [hidden]="changeCommand.parameter_name6 == null">
-                <p>{{changeCommand.parameter_name6}}</p>
-                <input type="number"
-                       class="value6"
+              <div class="parameter" [hidden]="changeCommand.parameter_name6 == null">
+                <p class="parameter-name">{{changeCommand.parameter_name6}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value6"
                        [hidden]="changeCommand.parameter_default_value6 == null" />
               </div>
-              <div class="parameter7" [hidden]="changeCommand.parameter_name7 == null">
-                <p>{{changeCommand.parameter_name7}}</p>
-                <input type="number"
-                       class="value7"
+              <div class="parameter" [hidden]="changeCommand.parameter_name7 == null">
+                <p class="parameter-name">{{changeCommand.parameter_name7}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value7"
                        [hidden]="changeCommand.parameter_default_value7 == null" />
               </div>
-              <div class="parameter8" [hidden]="changeCommand.parameter_name8 == null">
-                <p>{{changeCommand.parameter_name8}}</p>
-                <input type="number"
-                       class="value8"
+              <div class="parameter" [hidden]="changeCommand.parameter_name8 == null">
+                <p class="parameter-name">{{changeCommand.parameter_name8}}</p>
+                <input type="text"
+                       class="value"
                        [(ngModel)]="changeCommand.parameter_default_value8"
                        [hidden]="changeCommand.parameter_default_value8 == null" />
               </div>
             </div>
           </div>
-          <div class="row">
-            Место для кнопок
-            <button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>
-            <button type="button" class="btn btn-success" (click)="sendCommand()">Отправить</button>
-          </div>               
+          <div class="row buttons-area">
+            <div class="col-sm">
+              <button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>
+              <!--<button type="button" class="btn btn-success" (click)="sendCommand()">Отправить</button>-->
+            </div>
+            <div class="col-sm">
+              <!--<button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>-->
+              <button type="button" class="btn btn-success" (click)="sendCommand()">Отправить</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <button type="button" class="btn btn-secondary" (click)="getHistory()">Получить историю</button>
-    <div class="history-table">
-      <table class="table table-striped">
+    <!--<button type="button" class="btn btn-secondary" (click)="getHistory()">Получить историю</button>-->
+    <div class="history">
+      <table id="history-table" class="table table-striped">
         <thead class="table-dark">
-          <tr>
+          <tr class="history-table-header">
             <th scope="col">№</th>
             <th scope="col">Дата и время</th>
             <th scope="col">Команда</th>
@@ -137,3 +166,4 @@
     </div>
   </div>
 </div>
+

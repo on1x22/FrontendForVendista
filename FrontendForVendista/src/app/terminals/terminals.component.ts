@@ -20,22 +20,57 @@ export class TerminalsComponent {
   historyCommandsList: CommandInfo[] = [];
   historyCommandsList2: CommandWithName[] = [];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.getTreminalsId();
+  }
 
   async giveMeData() {
-    this.terminalsList.push(129);
+    this.terminalsList.splice(0);
+    await this.getTreminalsId();
 
-    this.selectedTerminalId = this.terminalsList[0];
+    //this.terminalsList.push(129);
+    //this.terminalsList.push(130);
+    //this.terminalsList.push(135);
 
-    this.commandData = await this.httpClient.get<Root>('/commands/types?token=f0d17d3cae184917802e2ef2').toPromise();
+    //this.selectedTerminalId = this.terminalsList[0];
 
-    this.commandTypes = this.commandData.items;
-    console.log('names:');
-    for (let i = 0; i < this.commandTypes.length; i++) {
-      console.log(this.commandTypes[i].name);
+    /*this.commandData = await this.httpClient.get<Root>('/commands/types?token=f0d17d3cae184917802e2ef2').toPromise();
+    this.commandTypes = this.commandData.items;*/
+
+    await this.getCommandTypes();
+
+    //console.log('names:');
+    //for (let i = 0; i < this.commandTypes.length; i++) {
+    //  console.log(this.commandTypes[i].name);
+    //}
+
+    await this.getHistory();
+  }
+
+  async getTreminalsId() {
+    this.terminalsList.splice(0);
+
+    let allTerminalsInfo = await this.httpClient.get<any>('/terminals?token=f0d17d3cae184917802e2ef2').toPromise();
+    for (let i = 0; i < allTerminalsInfo.items.length; i++) {
+      this.terminalsList.push(allTerminalsInfo.items[i].id);
+    }
+
+  }
+
+  async onTerminalChange(i: any) {
+    let terminalId = i/*.target.value*/;
+    this.selectedTerminalId = this.terminalsList[terminalId];
+
+    if (this.commandTypes == null || this.commandTypes.length == 0) {
+      await this.getCommandTypes();
     }
 
     await this.getHistory();
+  }
+
+  async getCommandTypes() {
+    this.commandData = await this.httpClient.get<Root>('/commands/types?token=f0d17d3cae184917802e2ef2').toPromise();
+    this.commandTypes = this.commandData.items;
   }
 
   onCommandTypeChange(e: any) {
@@ -90,13 +125,13 @@ export class TerminalsComponent {
       .set('token', "f0d17d3cae184917802e2ef2");
 
     let resp;
-    this.httpClient.post<SendedCommand>(`/terminals/${this.selectedTerminalId}/commands`, this.sendedCommand, { 'params': params })
+    await this.httpClient.post<SendedCommand>(`/terminals/${this.selectedTerminalId}/commands`, this.sendedCommand, { 'params': params })
       .subscribe(result => {
         resp = result;
-        console.log(result);
+        //console.log(result);
       })
 
-    let resp2 = resp;
+    //let resp2 = resp;
     await this.getHistory();
 
   }
