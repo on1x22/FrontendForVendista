@@ -7,7 +7,78 @@
   border: none;
 }
 
-.terminals-list {
-  background-color: blue;
+.card-body {
+  padding-right: 0% !important;
+}
+
+/*.terminals-list {
+  background-color: white;
   list-style-type: none;
+  height: 20rem;
+}
+
+.terminals-list-item {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.terminals-list-item:active {
+    background-color: #e5e8ef;
+}
+
+.terminals-list-item:hover {
+  background-color: whitesmoke;
+  --bs-nav-link-hover-color: #000;
+}*/
+/*.terminals-list-item:focus {
+    background-color: aquamarine;
+}*/
+/*.iteitem:focus {
+  background-color: aquamarine;
+}*/
+/*.table-hover:focus {
+  background-color: aquamarine;
+}*/
+.terminals-teble {
+  height: 20rem
+}
+
+terminals-teble.active td {
+  border: 1px solid #ccc;
+}
+
+.buttons-area {
+  padding-right: 0% !important;
+}
+
+.btn-secondary {
+  background-color: #aeb5c6;
+  border: none;
+  width: inherit;
+}
+
+.btn-success {
+  background-color: #16b392;
+  border: none;
+  width: inherit;
+}
+
+.value {
+  border: none;
+}
+
+.inputs-area {
+    margin-bottom: 1rem;
+}
+
+.parameter {
+    margin-bottom: 1%;
+}
+
+.parameter-name {
+  margin-bottom: 0%;
+}
+
+.history-table-header {
+  --bs-table-bg: #474648;
 }
