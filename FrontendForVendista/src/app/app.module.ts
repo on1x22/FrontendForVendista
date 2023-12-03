@@ -9,8 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { Route, RouterModule, Routes } from '@angular/router';
 import { StubComponent } from './stub/stub.component';
 import { TerminalsComponent } from './terminals/terminals.component';
+import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
+  { path: 'users', component: UsersComponent },
   { path: 'terminals', component: TerminalsComponent },
   { path: 'stub', component: StubComponent },
   {
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     SidebarComponent,
     StubComponent,
+    UsersComponent,
     TerminalsComponent
   ],
   imports: [

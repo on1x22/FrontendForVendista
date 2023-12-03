@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Root, Item } from '../entity/TypeResponse';
 import { SendedCommand } from '../entity/SendedCommand';
 import { CommandInfo, CommandWithName, CommandTransformer, HistoryResponse } from '../entity/HistoryResponse';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'terminals-app',
@@ -132,7 +133,7 @@ export class TerminalsComponent {
       })
 
     //let resp2 = resp;
-    await this.getHistory();
+    /*await*/ this.getHistory();
 
   }
 
@@ -144,9 +145,10 @@ export class TerminalsComponent {
 
     var historyResponse: any = await this.httpClient.get<HistoryResponse>(`/terminals/${this.selectedTerminalId}/commands`, { 'params': params }).toPromise();
 
-    this.historyCommandsList = historyResponse?.items;
+    this.historyCommandsList = /*await*/ historyResponse?.items;
 
     this.historyCommandsList2 = CommandTransformer
       .getCommandListWithNames(historyResponse, this.commandTypes);
   }
+
 }

@@ -1,0 +1,110 @@
+.all-info {
+  padding: 2% 2% 0% 2%;
+}
+
+.user-info {
+  background-color: #e5e8ef;
+  border: none;
+}
+
+.card-body {
+  padding-right: 0% !important;
+}
+
+.terminals-teble {
+  height: 20rem
+}
+
+terminals-teble.active td {
+  border: 1px solid #ccc;
+}
+
+.buttons-area {
+  padding-right: 0% !important;
+}
+
+.btn-secondary {
+  background-color: #aeb5c6;
+  border: none;
+  width: inherit;
+}
+
+.btn-success {
+  background-color: #16b392;
+  border: none;
+  width: inherit;
+}
+
+.value {
+  border: none;
+}
+
+.inputs-area {
+  margin-bottom: 1rem;
+}
+
+.parameter {
+  margin-bottom: 1%;
+}
+
+.parameter-name {
+  margin-bottom: 0%;
+}
+
+.history-table-header {
+  --bs-table-bg: #474648;
+}
+
+
+
+.buttons-row {
+  padding-bottom: 1%;
+}
+
+.sidebar {
+  /*background: #37474F;*/
+  --bs-list-group-border-color: red;
+}
+
+.me-3 {
+  margin-right: unset !important;
+  flex: auto !important;
+}
+
+.align-items-start {
+  /*background-color: whitesmoke;*/
+}
+
+.nav-pills {
+  --bs-nav-pills-border-radius: none;
+  --bs-nav-pills-link-active-color: #000;
+  --bs-nav-pills-link-active-bg: #e5e8ef;
+  --bs-nav-link-color: var(--bs-nav-pills-link-active-color);
+  /*--bs-nav-link-hover-color: #0aca9f;*/
+}
+
+/*.nav-pills:hover {
+    background-color: palegoldenrod;
+}*/
+
+.nav-link {
+  text-align: left;
+}
+
+
+
+  .nav-link:hover {
+    background-color: #f3f6fd;
+    --bs-nav-link-hover-color: #000;
+  }
+
+
+.user-navigation {
+  background-color: white;
+  padding-left: inherit;
+  padding-right: inherit;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #ececec;
+}
