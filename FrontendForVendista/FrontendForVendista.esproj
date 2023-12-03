@@ -15,5 +15,6 @@
     <Folder Include="src\app\header\" />
     <Folder Include="src\app\stub\" />
     <Folder Include="src\app\terminals\" />
+    <Folder Include="src\app\users\" />
   </ItemGroup>
 </Project>
