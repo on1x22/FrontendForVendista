@@ -9,33 +9,11 @@
           <div class="col-sm">
             <div class="row">
               ID Терминала(ов)
-              <!--<button (click)="giveMeData()">Get terminals</button>-->
-            </div>
-            <!--<div class="row">
-              <ul class="terminals-list" (onclick)="onTerminalChange($event)">
-                <li class="terminals-list-item" *ngFor="let terminal of terminalsList; let i = index" (click)="onTerminalChange(i)">
-                  <span class="file">
-                    <a class="iteitem">{{terminal}}</a>
-                  </span>
-                </li>
-              </ul>
-            </div>-->
+            </div>           
             <div class="row">
-
-
-              <!--<div class="dropdown">
-              <ul class="dropdown-menu">
-                <li><span class="dropdown-item-text">Текст выпадающего списка</span></li>
-                <li><a class="dropdown-item" href="#">Действие</a></li>
-                <li><a class="dropdown-item" href="#">Другое действие</a></li>
-                <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
-              </ul>
-              </div>-->
-
               <table class="table table-hover table-borderless terminals-table">
                 <thead>
                   <tr>
-                    <!--<th>Terminal Id</th>-->
                   </tr>
                 </thead>
                 <tbody>
@@ -124,11 +102,9 @@
           </div>
           <div class="row buttons-area">
             <div class="col-sm">
-              <button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>
-              <!--<button type="button" class="btn btn-success" (click)="sendCommand()">Отправить</button>-->
+              <button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>              
             </div>
-            <div class="col-sm">
-              <!--<button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>-->
+            <div class="col-sm">              
               <button type="button" class="btn btn-success" (click)="sendCommand()">Отправить</button>
             </div>
           </div>
@@ -136,8 +112,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <!--<button type="button" class="btn btn-secondary" (click)="getHistory()">Получить историю</button>-->
+  <div class="row">    
     <div class="history">
       <table id="history-table" class="table table-striped">
         <thead class="table-dark">
