@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { UserInfo } from '../entity/UserInfo';
+import { UserInfo, UserInfoItem } from '../entity/UserInfo';
 
 @Component({
   selector: 'users-app',
@@ -30,7 +30,6 @@ export class UsersComponent {
   }
 
   async onUserChanged(i: any) {
-    //let userId = i;
     if (this.selectedUserId == i) {
       return;
     }
@@ -58,5 +57,24 @@ export class UsersComponent {
 
   editModeIsOff() {
     this.isEdited = false;
+  }
+
+  async onSendChangedUserInfo() {
+    if (this.userInfo == null)
+      return;
+
+    let responce;
+    await this.httpClient.put<UserInfo>(`/users/${this.selectedUserId}?token=f0d17d3cae184917802e2ef2`, this.userInfo)
+      .subscribe(result => { responce = result; });
+
+    this.editModeIsOff();
+  }
+
+  onAddUser() {
+    // This method is not available now, because I have only read rights
+  }
+
+  onDeleteUser() {
+    // This method is not available now, because I have only read rights
   }
 }

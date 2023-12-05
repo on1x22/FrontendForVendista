@@ -15,9 +15,9 @@
               </div>
               <div class="col-sm-4">
                 <div class="d-grid gap-1 d-md-flex justify-content-md-end">
-                  <button type="button" class="btn btn-secondary btn-sm me-md-2 disabled add-button" [disabled]="isEdited == true || userInfo == null">+</button>
+                  <button type="button" class="btn btn-secondary btn-sm me-md-2 disabled add-button" (click)="onAddUser()" [disabled]="isEdited == true || userInfo == null">+</button>
                   <button type="button" class="btn btn-secondary btn-sm me-md-2 edit-button" (click)="editModeIsOn()" [disabled]="isEdited == true || userInfo == null">~</button>
-                  <button type="button" class="btn btn-secondary btn-sm me-md-2 delete-button" [disabled]="isEdited == true || userInfo == null">-</button>
+                  <button type="button" class="btn btn-secondary btn-sm me-md-2 disabled delete-button" (click)="onDeleteUser()" [disabled]="isEdited == true || userInfo == null">-</button>
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
               </table>-->
               <div class="d-flex align-items-start user-navigation">
                 <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <button class="nav-link" id="clients" data-bs-toggle="pill" type="button" role="tab"
+                  <button class="nav-link" id="users" data-bs-toggle="pill" type="button" role="tab"
                           *ngFor="let userId of userIdsList; let i = index" (click)="onUserChanged(userId)">>
                     {{userId}}
                   </button>
@@ -98,7 +98,7 @@
                        class="form-control"
                        aria-label="OwnerId"
                        aria-describedby="basic-addon1"
-                       [(ngModel)]="userInfo.ownerId"
+                       [(ngModel)]="userInfo.owner_id"
                        [disabled]="isEdited == false">
               </div>
               <div class="input-group mb-3">
@@ -116,7 +116,7 @@
                        class="form-control"
                        aria-label="Username"
                        aria-describedby="basic-addon1"
-                       [(ngModel)]="userInfo.ownerName"
+                       [(ngModel)]="userInfo.owner_name"
                        [disabled]="isEdited == false">
               </div>
               <!--<div class="input-group flex-nowrap">
@@ -128,7 +128,7 @@
                 <div class="input-group-text">
                   <input class="form-check-input mt-0"
                          type="checkbox"
-                         [(ngModel)]="userInfo.myVendista"
+                         [(ngModel)]="userInfo.my_vendista"
                          [disabled]="isEdited == false">
                 </div>
                 <!--<input type="text" class="form-control" aria-label="Text input with checkbox">-->
@@ -177,7 +177,7 @@
             </div>
             <div class="col-sm">
               <!--<button type="button" class="btn btn-secondary" (click)="cancelCommand()">Назад</button>-->
-              <button type="button" class="btn btn-success" *ngIf="userInfo != null" [disabled]="isEdited == false">Отправить</button>
+              <button type="button" class="btn btn-success" *ngIf="userInfo != null" [disabled]="isEdited == false" (click)="onSendChangedUserInfo()">Отправить</button>
             </div>
           </div>
         </div>
