@@ -11,34 +11,6 @@
   padding-right: 0% !important;
 }
 
-/*.terminals-list {
-  background-color: white;
-  list-style-type: none;
-  height: 20rem;
-}
-
-.terminals-list-item {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
-.terminals-list-item:active {
-    background-color: #e5e8ef;
-}
-
-.terminals-list-item:hover {
-  background-color: whitesmoke;
-  --bs-nav-link-hover-color: #000;
-}*/
-/*.terminals-list-item:focus {
-    background-color: aquamarine;
-}*/
-/*.iteitem:focus {
-  background-color: aquamarine;
-}*/
-/*.table-hover:focus {
-  background-color: aquamarine;
-}*/
 .terminals-teble {
   height: 20rem
 }
@@ -81,4 +53,35 @@ terminals-teble.active td {
 
 .history-table-header {
   --bs-table-bg: #474648;
+}
+
+.me-3 {
+  margin-right: unset !important;
+  flex: auto !important;
+}
+
+.nav-pills {
+  --bs-nav-pills-border-radius: none;
+  --bs-nav-pills-link-active-color: #000;
+  --bs-nav-pills-link-active-bg: #e5e8ef;
+  --bs-nav-link-color: var(--bs-nav-pills-link-active-color);
+}
+
+.nav-link {
+  text-align: left;
+}
+
+  .nav-link:hover {
+    background-color: #f3f6fd;
+    --bs-nav-link-hover-color: #000;
+  }
+
+.terminals-navigation {
+  background-color: white;
+  padding-left: inherit;
+  padding-right: inherit;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #ececec;
 }
