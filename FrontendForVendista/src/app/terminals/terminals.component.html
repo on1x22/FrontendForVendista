@@ -11,7 +11,7 @@
               ID Терминала(ов)
             </div>           
             <div class="row">
-              <table class="table table-hover table-borderless terminals-table">
+              <!--<table class="table table-hover table-borderless terminals-table">
                 <thead>
                   <tr>
                   </tr>
@@ -21,7 +21,16 @@
                     <td>{{terminal}}</td>
                   </tr>
                 </tbody>
-              </table>
+              </table>-->
+              <div class="d-flex align-items-start terminals-navigation">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                  <button class="nav-link" id="users" data-bs-toggle="pill" type="button" role="tab"
+                          *ngFor="let terminal of terminalsList; let i = index" (click)="onTerminalChange(i)">
+                    {{terminal}}
+                  </button>
+
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-sm">
