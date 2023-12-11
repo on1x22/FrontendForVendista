@@ -17,4 +17,10 @@
     "changeOrigin": true,
     "logLevel": "debug"
   },
+  "/owners/*": {
+    "target": "http://178.57.218.210:398",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
 }

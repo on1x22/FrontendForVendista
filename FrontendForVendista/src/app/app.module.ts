@@ -10,8 +10,10 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { StubComponent } from './stub/stub.component';
 import { TerminalsComponent } from './terminals/terminals.component';
 import { UsersComponent } from './users/users.component';
+import { OwnersComponent } from './owners/owners.component';
 
 const appRoutes: Routes = [
+  { path: 'owners', component: OwnersComponent },
   { path: 'users', component: UsersComponent },
   { path: 'terminals', component: TerminalsComponent },
   { path: 'stub', component: StubComponent },
@@ -22,14 +24,13 @@ const appRoutes: Routes = [
   }
 ];
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidebarComponent,
     StubComponent,
+    OwnersComponent,
     UsersComponent,
     TerminalsComponent
   ],

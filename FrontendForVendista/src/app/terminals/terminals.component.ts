@@ -29,21 +29,7 @@ export class TerminalsComponent {
     this.terminalsList.splice(0);
     await this.getTreminalsId();
 
-    //this.terminalsList.push(129);
-    //this.terminalsList.push(130);
-    //this.terminalsList.push(135);
-
-    //this.selectedTerminalId = this.terminalsList[0];
-
-    /*this.commandData = await this.httpClient.get<Root>('/commands/types?token=f0d17d3cae184917802e2ef2').toPromise();
-    this.commandTypes = this.commandData.items;*/
-
     await this.getCommandTypes();
-
-    //console.log('names:');
-    //for (let i = 0; i < this.commandTypes.length; i++) {
-    //  console.log(this.commandTypes[i].name);
-    //}
 
     await this.getHistory();
   }
@@ -59,7 +45,7 @@ export class TerminalsComponent {
   }
 
   async onTerminalChange(i: any) {
-    let terminalId = i/*.target.value*/;
+    let terminalId = i;
     this.selectedTerminalId = this.terminalsList[terminalId];
 
     if (this.commandTypes == null || this.commandTypes.length == 0) {
@@ -129,11 +115,9 @@ export class TerminalsComponent {
     await this.httpClient.post<SendedCommand>(`/terminals/${this.selectedTerminalId}/commands`, this.sendedCommand, { 'params': params })
       .subscribe(result => {
         resp = result;
-        //console.log(result);
-      })
+      });
 
-    //let resp2 = resp;
-    /*await*/ this.getHistory();
+    this.getHistory();
 
   }
 
@@ -145,7 +129,7 @@ export class TerminalsComponent {
 
     var historyResponse: any = await this.httpClient.get<HistoryResponse>(`/terminals/${this.selectedTerminalId}/commands`, { 'params': params }).toPromise();
 
-    this.historyCommandsList = /*await*/ historyResponse?.items;
+    this.historyCommandsList = historyResponse?.items;
 
     this.historyCommandsList2 = CommandTransformer
       .getCommandListWithNames(historyResponse, this.commandTypes);
