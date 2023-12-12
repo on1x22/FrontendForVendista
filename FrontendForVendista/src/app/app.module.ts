@@ -6,16 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { StubComponent } from './stub/stub.component';
 import { TerminalsComponent } from './terminals/terminals.component';
 import { UsersComponent } from './users/users.component';
 import { OwnersComponent } from './owners/owners.component';
+import { TidsComponent } from './tids/tids.component';
 
 const appRoutes: Routes = [
   { path: 'owners', component: OwnersComponent },
   { path: 'users', component: UsersComponent },
   { path: 'terminals', component: TerminalsComponent },
+  { path: 'tids', component: TidsComponent },
   { path: 'stub', component: StubComponent },
   {
     path: '**',
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     StubComponent,
     OwnersComponent,
     UsersComponent,
-    TerminalsComponent
+    TerminalsComponent,
+    TidsComponent
   ],
   imports: [
     BrowserModule,
