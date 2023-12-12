@@ -1,0 +1,128 @@
+<div class="container-fluid all-info">
+  <div class="row">
+    <a>Информация о TID банков</a>
+  </div>
+  <div class="row">
+    <div class="card tids-info">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm">
+            <div class="row buttons-row">
+              <div class="col-sm-8">
+                <a>TID банков</a>
+              </div>
+              <div class="col-sm-4">
+                <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                  <button type="button" class="btn btn-secondary btn-sm me-md-2 disabled add-button" (click)="onAddTid()" [disabled]="isEdited == true || tidInfo == null">+</button>
+                  <button type="button" class="btn btn-secondary btn-sm me-md-2 edit-button" (click)="editModeIsOn()" [disabled]="isEdited == true || tidInfo == null">~</button>
+                  <button type="button" class="btn btn-secondary btn-sm me-md-2 disabled delete-button" (click)="onDeleteTid()" [disabled]="isEdited == true || tidInfo == null">-</button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="d-flex align-items-start tids-navigation">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                  <button class="nav-link" id="users" data-bs-toggle="pill" type="button" role="tab"
+                          *ngFor="let tid of tidsList; let i = index" (click)="onTidChanged(tid)">
+                    {{tid}}
+                  </button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            Информация о TID банка
+            <div class="user-info-area" *ngIf="tidInfo != null">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Id</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="BankId"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="tidInfo.id"
+                       disabled>
+              </div>
+              <div class="user-info-area" *ngIf="tidInfo != null">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Tid</span>
+                  <input type="text"
+                         class="form-control"
+                         aria-label="BankTid"
+                         aria-describedby="basic-addon1"
+                         [(ngModel)]="tidInfo.tid"
+                         disabled>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Mid</span>
+                  <input type="text"
+                         class="form-control"
+                         aria-label="BankMid"
+                         aria-describedby="basic-addon1"
+                         [(ngModel)]="tidInfo.mid"
+                         [disabled]="isEdited == false">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Owner Id</span>
+                  <input type="text"
+                         class="form-control"
+                         aria-label="BankOwnerId"
+                         aria-describedby="basic-addon1"
+                         [(ngModel)]="tidInfo.owner_id"
+                         [disabled]="isEdited == false">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Comment</span>
+                  <input type="text"
+                         class="form-control"
+                         aria-label="comment"
+                         aria-describedby="basic-addon1"
+                         [(ngModel)]="tidInfo.comment"
+                         [disabled]="isEdited == false">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Bank Id</span>
+                  <input type="text"
+                         class="form-control"
+                         aria-label="BankId"
+                         aria-describedby="basic-addon1"
+                         [(ngModel)]="tidInfo.bank_id"
+                         [disabled]="isEdited == false">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Owner name</span>
+                  <input type="text"
+                         class="form-control"
+                         aria-label="OwnerName"
+                         aria-describedby="basic-addon1"
+                         [(ngModel)]="tidInfo.owner_name"
+                         [disabled]="isEdited == false">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">state</span>
+                  <input type="text"
+                         class="form-control"
+                         aria-label="state"
+                         aria-describedby="basic-addon1"
+                         [(ngModel)]="tidInfo.state"
+                         [disabled]="isEdited == false">
+                </div>                
+              </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="row buttons-area">
+            <div class="col-sm">
+              <button type="button" class="btn btn-secondary" (click)="editModeIsOff()" *ngIf="tidInfo != null" [disabled]="isEdited == false">Назад</button>
+            </div>
+            <div class="col-sm">
+              <button type="button" class="btn btn-success" *ngIf="tidInfo != null" [disabled]="isEdited == false" (click)="onSendChangedTidInfo()">Отправить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+

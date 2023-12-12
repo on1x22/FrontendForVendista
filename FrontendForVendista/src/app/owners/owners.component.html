@@ -1,5 +1,3 @@
-<h2>Owners page</h2>
-
 <div class="container-fluid all-info">
   <div class="row">
     <a>Информация об организациях</a>
@@ -54,6 +52,206 @@
                        [(ngModel)]="ownerInfo.name"
                        [disabled]="isEdited == false">
               </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Phone</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerPhone"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.phone"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Telegram phone</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="TelegramPhone"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.telegram_phone"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">State</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerState"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.state"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Inn</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerInn"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.inn"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Type of business</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerTypeOfBusiness"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.type_of_business"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Contact phone</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerContactPhone"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.contact_phone"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Contact email</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerContactEmail"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.contact_email"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Partner ID</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerPartnerId"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.partner_id"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Partner name</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerPartnerName"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.partner_name"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Business type ID</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerBusinessTypeId"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.business_type_id"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Commission rate</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerCommissionRate"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.commission_rate"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Bank ID</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerBankId"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.bank_id"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Created by</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerCreatedBy"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.created_by"
+                       disabled>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Creator name</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerCreatorName"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.creator_name"
+                       disabled>
+              </div>
+              <!--<div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Create time</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerCreateTime"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.create_time"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Modify time</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerModifyTime"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.modify_time"
+                       [disabled]="isEdited == false">
+              </div>-->
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Create time</span>
+                <input type="datetime"
+                       class="form-control"
+                       aria-label="OwnerCreateTime"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.create_time"
+                       disabled>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Modify time</span>
+                <input type="datetime"
+                       class="form-control"
+                       aria-label="OwnerModifyTime"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.modify_time"
+                       disabled>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Subscription fee</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerSubscriptionFee"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.subscription_fee"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Paid sim subscription fee</span>
+                <input type="text"
+                       class="form-control"
+                       aria-label="OwnerPaidSimSubscriptionFee"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="ownerInfo.paid_sim_subscription_fee"
+                       [disabled]="isEdited == false">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Clients fee disabled</span>
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0"
+                         type="checkbox"
+                         [(ngModel)]="ownerInfo.clients_fee_disabled"
+                         [disabled]="isEdited == false">
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fee disabled from partner</span>
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0"
+                         type="checkbox"
+                         [(ngModel)]="ownerInfo.fee_disabled_from_partner"
+                         [disabled]="isEdited == false">
+                </div>
+              </div>
+
+
               <!--<div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1">Login</span>
     <input type="text"

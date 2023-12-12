@@ -10,7 +10,6 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\FrontendForVendista</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\entity\" />
     <Folder Include="src\app\sidebar\" />
     <Folder Include="src\app\header\" />
     <Folder Include="src\app\stub\" />
