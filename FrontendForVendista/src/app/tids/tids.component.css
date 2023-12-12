@@ -1,0 +1,63 @@
+.all-info {
+  padding: 2% 2% 0% 2%;
+}
+
+.tids-info {
+  background-color: #e5e8ef;
+  border: none;
+}
+
+.card-body {
+  padding-right: 0% !important;
+}
+
+.buttons-area {
+  padding-right: 0% !important;
+}
+
+.btn-secondary {
+  background-color: #aeb5c6;
+  border: none;
+  width: inherit;
+}
+
+.btn-success {
+  background-color: #16b392;
+  border: none;
+  width: inherit;
+}
+
+.buttons-row {
+  padding-bottom: 1%;
+}
+
+.me-3 {
+  margin-right: unset !important;
+  flex: auto !important;
+}
+
+.nav-pills {
+  --bs-nav-pills-border-radius: none;
+  --bs-nav-pills-link-active-color: #000;
+  --bs-nav-pills-link-active-bg: #e5e8ef;
+  --bs-nav-link-color: var(--bs-nav-pills-link-active-color);
+}
+
+.nav-link {
+  text-align: left;
+}
+
+  .nav-link:hover {
+    background-color: #f3f6fd;
+    --bs-nav-link-hover-color: #000;
+  }
+
+.tids-navigation {
+  background-color: white;
+  padding-left: inherit;
+  padding-right: inherit;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #ececec;
+}
