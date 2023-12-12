@@ -62,8 +62,11 @@ export class OwnersComponent {
     if (this.ownerInfo == null)
       return;
 
+    this.ownerInfo.modify_time = new Date();
     let responce;
-    await this.httpClient.put<OwnerInfo>(`/owners/${this.selectedOwnerId}?token=f0d17d3cae184917802e2ef2`, this.ownerInfo)
+    //await this.httpClient.put<OwnerInfo>(`/owners/${this.selectedOwnerId}?token=f0d17d3cae184917802e2ef2`, this.ownerInfo)
+    //  .subscribe(result => { responce = result; });
+    await this.httpClient.put<OwnerInfo>(`/owners?token=f0d17d3cae184917802e2ef2`, this.ownerInfo)
       .subscribe(result => { responce = result; });
 
     this.editModeIsOff();
