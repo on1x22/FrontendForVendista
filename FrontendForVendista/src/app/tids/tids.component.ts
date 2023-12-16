@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TidInfo } from '../entity/tidInfo';
+import { TidInfo } from '../entity/TidInfo';
 
 @Component({
   selector: 'tids-app',
