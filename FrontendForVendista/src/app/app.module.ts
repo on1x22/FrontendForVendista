@@ -12,8 +12,10 @@ import { TerminalsComponent } from './terminals/terminals.component';
 import { UsersComponent } from './users/users.component';
 import { OwnersComponent } from './owners/owners.component';
 import { TidsComponent } from './tids/tids.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'owners', component: OwnersComponent },
   { path: 'users', component: UsersComponent },
   { path: 'terminals', component: TerminalsComponent },
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     HeaderComponent,
     SidebarComponent,
     StubComponent,
