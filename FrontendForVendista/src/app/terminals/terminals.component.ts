@@ -117,8 +117,10 @@ export class TerminalsComponent {
         resp = result;
       });
 
-    this.getHistory();
+    const sleep = (ms: number | undefined) => new Promise(r => setTimeout(r, ms));
+    await sleep(100);
 
+    await this.getHistory();
   }
 
   async getHistory() {
@@ -134,5 +136,4 @@ export class TerminalsComponent {
     this.historyCommandsList2 = CommandTransformer
       .getCommandListWithNames(historyResponse, this.commandTypes);
   }
-
 }

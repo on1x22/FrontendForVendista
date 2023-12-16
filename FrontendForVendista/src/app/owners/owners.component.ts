@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, TemplateRef } from '@angular/core';
+//import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { OwnerInfo } from '../entity/OwnerInfo';
+import { DirectorInfo } from '../entity/DirectorInfo';
 
 @Component({
   selector: 'owners-app',
@@ -13,6 +15,9 @@ export class OwnersComponent {
   ownerIdsList: number[] = [];
   selectedOwnerId: number | undefined;
   ownerInfo?: OwnerInfo;
+  directorInfo?: DirectorInfo;
+  /*private modalService = inject(NgbModal);
+  closeResult = '';*/
 
   constructor(private httpClient: HttpClient) {
     this.getOwnersIds();
@@ -46,6 +51,7 @@ export class OwnersComponent {
     let ownerItem = await this.httpClient.get<any>(`/owners/${this.selectedOwnerId}?token=f0d17d3cae184917802e2ef2`).toPromise();
 
     this.ownerInfo = ownerItem/*.item*/;
+    this.directorInfo = ownerItem.director_info_initial;
 
     let dfs = 3;
   }
