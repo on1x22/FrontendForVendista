@@ -132,6 +132,9 @@
                        aria-describedby="basic-addon1"
                        [(ngModel)]="ownerInfo.partner_name"
                        [disabled]="isEdited == false">
+                <button type="button" class="btn btn-primary director-info-btn" data-bs-toggle="modal" data-bs-target="#partnerInfoExtra">
+                  !
+                </button>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Business type ID</span>
@@ -178,24 +181,6 @@
                        [(ngModel)]="ownerInfo.creator_name"
                        disabled>
               </div>
-              <!--<div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Create time</span>
-                <input type="text"
-                       class="form-control"
-                       aria-label="OwnerCreateTime"
-                       aria-describedby="basic-addon1"
-                       [(ngModel)]="ownerInfo.create_time"
-                       [disabled]="isEdited == false">
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Modify time</span>
-                <input type="text"
-                       class="form-control"
-                       aria-label="OwnerModifyTime"
-                       aria-describedby="basic-addon1"
-                       [(ngModel)]="ownerInfo.modify_time"
-                       [disabled]="isEdited == false">
-              </div>-->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Create time</span>
                 <input type="datetime"
@@ -251,70 +236,198 @@
                 </div>
               </div>
 
-
-              <!--<div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Login</span>
-    <input type="text"
-           class="form-control"
-           aria-label="Username"
-           aria-describedby="basic-addon1"
-           [(ngModel)]="userInfo.login"
-           [disabled]="isEdited == false">
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Email</span>
-    <input type="text"
-           class="form-control"
-           aria-label="Username"
-           aria-describedby="basic-addon1"
-           [(ngModel)]="userInfo.email"
-           [disabled]="isEdited == false">
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Owner Id</span>
-    <input type="text"
-           class="form-control"
-           aria-label="OwnerId"
-           aria-describedby="basic-addon1"
-           [(ngModel)]="userInfo.owner_id"
-           [disabled]="isEdited == false">
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Role</span>
-    <input type="text"
-           class="form-control"
-           aria-label="Username"
-           aria-describedby="basic-addon1"
-           [(ngModel)]="userInfo.role"
-           [disabled]="isEdited == false">
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Owner name</span>
-    <input type="text"
-           class="form-control"
-           aria-label="Username"
-           aria-describedby="basic-addon1"
-           [(ngModel)]="userInfo.owner_name"
-           [disabled]="isEdited == false">
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">My Vendista</span>
-    <div class="input-group-text">
-      <input class="form-check-input mt-0"
-             type="checkbox"
-             [(ngModel)]="userInfo.my_vendista"
-             [disabled]="isEdited == false">
-    </div>
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Timezone</span>
-    <input type="datetime"
-           class="form-control"
-           aria-label="Username"
-           aria-describedby="basic-addon1"
-           [(ngModel)]="userInfo.timezone"
-           [disabled]="isEdited == false">
-  </div>-->
+              <!-- Modal -->
+              <div class="modal fade" id="partnerInfoExtra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  *ngIf="directorInfo != null">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Director info</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Name</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.name"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Surname</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.surname"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Patronym</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.patronym"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Birth date</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.birth_date"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Birth place</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.birth_place"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Citizenship</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.citizenship"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Type</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.type"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Series</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.series"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Number</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.number"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Date of issue</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.date_of_issue"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Issued by</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.issued_by"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Department code</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.name"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Zip code</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.zip_code"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Region</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.region"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Settlement type</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.settlement_type"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Location</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.location"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Street type</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.street_type"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Street</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.street"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Building number</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.building_number"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Block number</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.name"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Room number</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.room_number"
+                               disabled>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Full address</span>
+                        <input type="text"
+                               class="form-control"
+                               aria-describedby="basic-addon1"
+                               [(ngModel)]="directorInfo.full_address"
+                               disabled>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

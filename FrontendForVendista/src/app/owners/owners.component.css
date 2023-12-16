@@ -61,3 +61,12 @@
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   background-color: #ececec;
 }
+
+.director-info-btn {
+  background-color: #aeb5c6;
+  border: none;
+}
+
+  .director-info-btn:active {
+    background-color: #565e64;
+  }
