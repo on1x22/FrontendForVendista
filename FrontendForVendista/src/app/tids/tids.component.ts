@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TidInfo } from '../entity/TidInfo';
+import { TokenFactory } from '../entity/TokenFactory';
 
 @Component({
   selector: 'tids-app',
@@ -13,6 +14,7 @@ export class TidsComponent {
   tidsList: number[] = [];
   selectedTid: number | undefined;
   tidInfo?: TidInfo;
+  token: string = TokenFactory.GetToken();
 
   constructor(private httpClient: HttpClient) {
     this.getTids();
@@ -21,7 +23,7 @@ export class TidsComponent {
   async getTids() {
     this.tidsList.splice(0);
 
-    let allTidsInfo = await this.httpClient.get<any>('/tid?token=f0d17d3cae184917802e2ef2').toPromise();
+    let allTidsInfo = await this.httpClient.get<any>(`/tid?token=${this.token}`).toPromise();
 
     for (let i = 0; i < allTidsInfo.items.length; i++) {
       this.tidsList.push(allTidsInfo.items[i].id);
@@ -43,7 +45,7 @@ export class TidsComponent {
   }
 
   async getTidInfo() {
-    let tidItem = await this.httpClient.get<any>(`/tid/${this.selectedTid}?token=f0d17d3cae184917802e2ef2`).toPromise();
+    let tidItem = await this.httpClient.get<any>(`/tid/${this.selectedTid}?token=${this.token}`).toPromise();
 
     this.tidInfo = tidItem.item;
 
@@ -63,7 +65,7 @@ export class TidsComponent {
       return;
 
     let responce;
-    await this.httpClient.put<TidInfo>(`/tid/${this.selectedTid}?token=f0d17d3cae184917802e2ef2`, this.tidInfo)
+    await this.httpClient.put<TidInfo>(`/tid/${this.selectedTid}?token=${this.token}`, this.tidInfo)
       .subscribe(result => { responce = result; });
 
     this.editModeIsOff();

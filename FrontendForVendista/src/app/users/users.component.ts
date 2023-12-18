@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { UserInfo, UserInfoItem } from '../entity/UserInfo';
+import { HttpClient } from '@angular/common/http';
+import { UserInfo } from '../entity/UserInfo';
+import { TokenFactory } from '../entity/TokenFactory';
 
 @Component({
   selector: 'users-app',
@@ -13,6 +14,7 @@ export class UsersComponent {
   selectedUserId: number | undefined;
   userInfo?: UserInfo;
   isEdited: boolean = false;
+  token: string = TokenFactory.GetToken();
 
   constructor(private httpClient: HttpClient) {
     this.getUserIds();
@@ -22,7 +24,7 @@ export class UsersComponent {
   async getUserIds() {
     this.userIdsList.splice(0);
 
-    let allUsersInfo = await this.httpClient.get<any>('/users?token=f0d17d3cae184917802e2ef2').toPromise();
+    let allUsersInfo = await this.httpClient.get<any>(`/users?token=${this.token}`).toPromise();
 
     for (let i = 0; i < allUsersInfo.items.length; i++) {
       this.userIdsList.push(allUsersInfo.items[i].id);
@@ -44,11 +46,9 @@ export class UsersComponent {
   }
 
   async getUserInfo() {
-    let userItem = await this.httpClient.get<any>(`/users/${this.selectedUserId}?token=f0d17d3cae184917802e2ef2`).toPromise();
+    let userItem = await this.httpClient.get<any>(`/users/${this.selectedUserId}?token=${this.token}`).toPromise();
 
     this.userInfo = userItem.item;
-
-    let dfs = 3;
   }
 
   editModeIsOn() {
@@ -64,7 +64,7 @@ export class UsersComponent {
       return;
 
     let responce;
-    await this.httpClient.put<UserInfo>(`/users/${this.selectedUserId}?token=f0d17d3cae184917802e2ef2`, this.userInfo)
+    await this.httpClient.put<UserInfo>(`/users/${this.selectedUserId}?token=${this.token}`, this.userInfo)
       .subscribe(result => { responce = result; });
 
     this.editModeIsOff();

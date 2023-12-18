@@ -1,22 +1,11 @@
 
 #header {
-  
-  /*z-index: 1000;
-  position: fixed;
-  left: 250px;*/
   width: inherit;
   height: 100%;
-  /*margin-left: -250px;
-  overflow-y: auto;*/
   background: #37474F;
- /* -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;*/
 }
 
   #header header {
-    /*background-color: #263238;*/
     background-color: #2e2d2e;
     font-size: 20px;
     line-height: 52px;

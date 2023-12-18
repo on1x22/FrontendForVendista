@@ -3,7 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Root, Item } from '../entity/TypeResponse';
 import { SendedCommand } from '../entity/SendedCommand';
 import { CommandInfo, CommandWithName, CommandTransformer, HistoryResponse } from '../entity/HistoryResponse';
-import { Observable } from 'rxjs';
+import { TokenFactory } from '../entity/TokenFactory';
+
 
 @Component({
   selector: 'terminals-app',
@@ -16,10 +17,11 @@ export class TerminalsComponent {
   selectedTerminalId: number | undefined;
   commandData: any;
   commandTypes: Item[] = [];
-  public changeCommand!: Item;
+  changeCommand!: Item;
   sendedCommand: SendedCommand = new SendedCommand;
   historyCommandsList: CommandInfo[] = [];
   historyCommandsList2: CommandWithName[] = [];
+  token: string = TokenFactory.GetToken();
 
   constructor(private httpClient: HttpClient) {
     this.getTreminalsId();
@@ -37,7 +39,7 @@ export class TerminalsComponent {
   async getTreminalsId() {
     this.terminalsList.splice(0);
 
-    let allTerminalsInfo = await this.httpClient.get<any>('/terminals?token=f0d17d3cae184917802e2ef2').toPromise();
+    let allTerminalsInfo = await this.httpClient.get<any>(`/terminals?token=${this.token}`).toPromise();
     for (let i = 0; i < allTerminalsInfo.items.length; i++) {
       this.terminalsList.push(allTerminalsInfo.items[i].id);
     }
@@ -56,7 +58,7 @@ export class TerminalsComponent {
   }
 
   async getCommandTypes() {
-    this.commandData = await this.httpClient.get<Root>('/commands/types?token=f0d17d3cae184917802e2ef2').toPromise();
+    this.commandData = await this.httpClient.get<Root>(`/commands/types?token=${this.token}`).toPromise();
     this.commandTypes = this.commandData.items;
   }
 
@@ -109,7 +111,7 @@ export class TerminalsComponent {
     }
 
     let params = new HttpParams()
-      .set('token', "f0d17d3cae184917802e2ef2");
+      .set('token', this.token);
 
     let resp;
     await this.httpClient.post<SendedCommand>(`/terminals/${this.selectedTerminalId}/commands`, this.sendedCommand, { 'params': params })
@@ -127,7 +129,7 @@ export class TerminalsComponent {
 
     let params = new HttpParams()
       .set('OrderDesc', "true")
-      .set('token', "f0d17d3cae184917802e2ef2");
+      .set('token', this.token);
 
     var historyResponse: any = await this.httpClient.get<HistoryResponse>(`/terminals/${this.selectedTerminalId}/commands`, { 'params': params }).toPromise();
 
