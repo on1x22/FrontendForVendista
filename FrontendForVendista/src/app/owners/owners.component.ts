@@ -1,8 +1,8 @@
-import { Component, inject, TemplateRef } from '@angular/core';
-//import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OwnerInfo } from '../entity/OwnerInfo';
 import { DirectorInfo } from '../entity/DirectorInfo';
+import { TokenFactory } from '../entity/TokenFactory';
 
 @Component({
   selector: 'owners-app',
@@ -16,8 +16,7 @@ export class OwnersComponent {
   selectedOwnerId: number | undefined;
   ownerInfo?: OwnerInfo;
   directorInfo?: DirectorInfo;
-  /*private modalService = inject(NgbModal);
-  closeResult = '';*/
+  token: string = TokenFactory.GetToken();
 
   constructor(private httpClient: HttpClient) {
     this.getOwnersIds();
@@ -26,7 +25,7 @@ export class OwnersComponent {
   async getOwnersIds() {
     this.ownerIdsList.splice(0);
 
-    let allOwnersInfo = await this.httpClient.get<any>('/owners?token=f0d17d3cae184917802e2ef2').toPromise();
+    let allOwnersInfo = await this.httpClient.get<any>(`/owners?token=${this.token}`).toPromise();
 
     for (let i = 0; i < allOwnersInfo.items.length; i++) {
       this.ownerIdsList.push(allOwnersInfo.items[i].id);
@@ -48,12 +47,10 @@ export class OwnersComponent {
   }
 
   async getOwnerInfo() {
-    let ownerItem = await this.httpClient.get<any>(`/owners/${this.selectedOwnerId}?token=f0d17d3cae184917802e2ef2`).toPromise();
+    let ownerItem = await this.httpClient.get<any>(`/owners/${this.selectedOwnerId}?token=${this.token}`).toPromise();
 
-    this.ownerInfo = ownerItem/*.item*/;
+    this.ownerInfo = ownerItem;
     this.directorInfo = ownerItem.director_info_initial;
-
-    let dfs = 3;
   }
 
   editModeIsOn() {
@@ -70,9 +67,8 @@ export class OwnersComponent {
 
     this.ownerInfo.modify_time = new Date();
     let responce;
-    //await this.httpClient.put<OwnerInfo>(`/owners/${this.selectedOwnerId}?token=f0d17d3cae184917802e2ef2`, this.ownerInfo)
-    //  .subscribe(result => { responce = result; });
-    await this.httpClient.put<OwnerInfo>(`/owners?token=f0d17d3cae184917802e2ef2`, this.ownerInfo)
+
+    await this.httpClient.put<OwnerInfo>(`/owners?token=${this.token}`, this.ownerInfo)
       .subscribe(result => { responce = result; });
 
     this.editModeIsOff();

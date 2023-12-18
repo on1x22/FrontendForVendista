@@ -2,8 +2,6 @@
   <div class="row">
     <header-app></header-app>
   </div>
-
-
     <div class="container-fluid" style="height: -webkit-fill-available; ">
       <div class="row" style="height: -webkit-fill-available;">
         <div class="col-sm-2">
@@ -12,129 +10,6 @@
         <div class="col-sm-10">
           <router-outlet></router-outlet>
         </div>
-      </div>
-      <!--<div class="row">
-        <div class="contentArea">
-          <h1>Отпаравка команды на терминал</h1>
-          <div class="comandInfoArea">
-            <div class="terminalsListArea">
-              <h2 class="terminalIdText">ID Терминала(ов)</h2>
-              <button (click)="giveMeData()">GET Users</button>
-
-              <ul class="terminalsList">
-                <li *ngFor="let terminal of terminalsList">
-                  <span class="file">
-                    <a>{{terminal}}</a>
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div class="commandsArea">
-              <h2>Команда</h2>
-              <select title="sda" name="dropdown" class="dropdownCommands" (change)="onCommandTypeChange($event)">
-                <option>Выберете команду</option>
-                <option *ngFor="let item of commandTypes; let i = index" [value]="i">
-                  {{item.name}}
-                </option>
-              </select>
-            </div>
-            <div class="commandDetailsArea"
-                 *ngIf="changeCommand != null"
-                 [hidden]="changeCommand.parameter_name1 == null">
-              <h2>Здесь детали команд</h2>
-              <div class="parameter1" [hidden]="changeCommand.parameter_name1 == null">
-                <p [hidden]="changeCommand.parameter_name1 == null">{{changeCommand.parameter_name1}}</p>
-                <input type="number"
-                       class="value1"
-                       [(ngModel)]="changeCommand.parameter_default_value1"
-                       [hidden]="changeCommand.parameter_default_value1 == null" />
-              </div>
-              <div class="parameter2" [hidden]="changeCommand.parameter_name2 == null">
-                <p [hidden]="changeCommand.parameter_name2 == null">{{changeCommand.parameter_name2}}</p>
-                <input type="number"
-                       class="value2"
-                       [(ngModel)]="changeCommand.parameter_default_value2"
-                       [hidden]="changeCommand.parameter_default_value2 == null" />
-              </div>
-              <div class="parameter3" [hidden]="changeCommand.parameter_name3 == null">
-                <p>{{changeCommand.parameter_name3}}</p>
-                <input type="number"
-                       class="value3"
-                       [(ngModel)]="changeCommand.parameter_default_value3"
-                       [hidden]="changeCommand.parameter_default_value3 == null" />
-              </div>
-              <div class="parameter4" [hidden]="changeCommand.parameter_name4 == null">
-                <p>{{changeCommand.parameter_name4}}</p>
-                <input type="number"
-                       class="value4"
-                       [(ngModel)]="changeCommand.parameter_default_value4"
-                       [hidden]="changeCommand.parameter_default_value4 == null" />
-              </div>
-              <div class="parameter5" [hidden]="changeCommand.parameter_name5 == null">
-                <p>{{changeCommand.parameter_name5}}</p>
-                <input type="number"
-                       class="value5"
-                       [(ngModel)]="changeCommand.parameter_default_value5"
-                       [hidden]="changeCommand.parameter_default_value5 == null" />
-              </div>
-              <div class="parameter6" [hidden]="changeCommand.parameter_name6 == null">
-                <p>{{changeCommand.parameter_name6}}</p>
-                <input type="number"
-                       class="value6"
-                       [(ngModel)]="changeCommand.parameter_default_value6"
-                       [hidden]="changeCommand.parameter_default_value6 == null" />
-              </div>
-              <div class="parameter7" [hidden]="changeCommand.parameter_name7 == null">
-                <p>{{changeCommand.parameter_name7}}</p>
-                <input type="number"
-                       class="value7"
-                       [(ngModel)]="changeCommand.parameter_default_value7"
-                       [hidden]="changeCommand.parameter_default_value7 == null" />
-              </div>
-              <div class="parameter8" [hidden]="changeCommand.parameter_name8 == null">
-                <p>{{changeCommand.parameter_name8}}</p>
-                <input type="number"
-                       class="value8"
-                       [(ngModel)]="changeCommand.parameter_default_value8"
-                       [hidden]="changeCommand.parameter_default_value8 == null" />
-              </div>
-            </div>
-            <div class="commandsButtonsArea">
-              <h2>Место для кнопок</h2>
-              <button (click)="cancelCommand()">Назад</button>
-              <button (click)="sendCommand()">Отправить</button>
-            </div>
-          </div>
-          <div class="historyArea">
-            <button (click)="getHistory()">Получить историю</button>
-            <div class="history-table">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">№</th>
-                    <th scope="col">дата и время</th>
-                    <th scope="col">Команда</th>
-                    <th scope="col">Параметр 1</th>
-                    <th scope="col">Параметр 2</th>
-                    <th scope="col">Параметр 3</th>
-                    <th scope="col">Статус</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let command of historyCommandsList2; index as i">
-                    <th scope="row">{{ i + 1 }}</th>
-                    <td>{{ command.time_created }}</td>
-                    <td>{{ command.command }}</td>
-                    <td>{{ command.parameter1 }}</td>
-                    <td>{{ command.parameter2 }}</td>
-                    <td>{{ command.parameter3 }}</td>
-                    <td>{{ command.state_name }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>-->
+      </div>    
     </div>
   </div>
